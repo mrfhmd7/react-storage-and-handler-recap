@@ -1,14 +1,21 @@
-import React from 'react';
-import { add } from '../../utilities/calculate';
+import React, { useEffect, useState } from 'react';
+import Cosmetic from '../Cosmetic/Cosmetic';
 
 const Cosmetics = () => {
-     const first = 15;
-     const second = 20;
-     const result = add(first, second);
+     const [cosmetics, setCosmetics] = useState([]);
+
+     useEffect(() => {
+          
+     }, []);
      return (
           <div>
                <h1>Welcome to my Cosmetics Store.</h1>
-               <h4>Result: {result}</h4>
+               {
+                    cosmetics.map(cosmetic => <Cosmetic
+                         key={cosmetic.id}
+                         cosmetic={cosmetic}
+                    ></Cosmetic>)
+               }
           </div>
      );
 };
