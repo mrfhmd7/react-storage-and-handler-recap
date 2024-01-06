@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cosmetic from '../Cosmetic/Cosmetic';
 import { deleteCart } from '../../utilities/fakedb';
+import { totalPrice } from '../../utilities/calculate';
 
 const Cosmetics = () => {
      const [cosmetics, setCosmetics] = useState([]);
@@ -10,6 +11,8 @@ const Cosmetics = () => {
           deleteCart();
      }
 
+     const total = totalPrice(cosmetics);
+
      useEffect(() => {
           fetch(`data.json`)
                .then(res => res.json())
@@ -18,6 +21,7 @@ const Cosmetics = () => {
      return (
           <div>
                <h1>Welcome to my Cosmetics Store.</h1>
+               <p>Your total price: ${total}</p>
                {
                     cosmetics.map(cosmetic => <Cosmetic
                          key={cosmetic.id}
