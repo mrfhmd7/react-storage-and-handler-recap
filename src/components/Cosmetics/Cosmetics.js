@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Cosmetic from '../Cosmetic/Cosmetic';
+import { deleteCart } from '../../utilities/fakedb';
 
 const Cosmetics = () => {
      const [cosmetics, setCosmetics] = useState([]);
+
+     const deleteShoppingCart = () => {
+          // console.log('delete');
+          deleteCart();
+     }
 
      useEffect(() => {
           fetch(`data.json`)
@@ -18,6 +24,7 @@ const Cosmetics = () => {
                          cosmetic={cosmetic}
                     ></Cosmetic>)
                }
+               <button onClick={() => deleteShoppingCart()}>Delete Cart</button>
           </div>
      );
 };

@@ -53,12 +53,13 @@ const removeFromDb = id => {
      }
 }
 
-// const deleteCart = () => {
-//      localStorage.removeItem('shopping-cart');
-// }
+const deleteCart = () => {
+     // console.log('delete form db');
+     localStorage.removeItem('shopping-cart');
+}
 
 export {
      addToDb,
      removeFromDb,
-     deleteCart,
+     deleteCart
 };
